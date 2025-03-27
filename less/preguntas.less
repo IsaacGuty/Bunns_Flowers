@@ -1,0 +1,49 @@
+.panel-textoParrafoPyF {
+    font-size: 1.4rem;
+    color: @primary-text-color;
+    line-height: 1.8;
+    margin-left: auto;  
+    margin-right: auto; 
+    padding: 20px;
+    background: @tertiary-color-light; 
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    border: 1px solid @tertiary-color-dark; 
+    max-width: 800px; 
+    width: 100%; 
+    transition: all 0.3s ease; 
+    margin-bottom: 25px;
+    text-align: left;  
+
+    @media (max-width: #breaks[tablet]) {
+        font-size: 1.2rem;
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: 730px;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        font-size: 1rem;
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center; 
+    }
+}
+
+.panel-textoParrafoPyF:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.cardPyF {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+
+    img {
+        max-width: 100%;
+        height: auto; 
+    }
+}
+

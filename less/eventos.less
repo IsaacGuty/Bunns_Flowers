@@ -1,0 +1,139 @@
+.panel-base {
+    font-size: 1.4rem;
+    color: black;
+    line-height: 2.5;
+    padding: 20px;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 50rem;
+    text-align: center;
+
+    @media (max-width: #breaks[tablet]) {
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        font-size: 1rem;
+    }
+
+    @media (min-width: #breaks[wide]) {
+        font-size: 1.8rem;
+        max-width: 70rem;
+        padding: 40px;
+    }
+}
+
+.bloque-principal {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 1.8rem;
+    color: black;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+
+    h2 {
+        font-weight: normal;
+    }
+
+    @media (max-width: #breaks[tablet]) {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        font-size: 1.5rem;
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+.card-base {
+    flex: 0 0 auto;
+    width: 350px;
+    height: auto;
+
+    img {
+        width: 100%;
+        height: 180px; 
+        object-fit: cover; 
+        border-radius: 10px;
+        border: 5px solid @tertiary-color-dark;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: #breaks[tablet]) {
+        width: 250px;
+
+        img {
+            height: 150px; 
+        }
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        width: 100%;
+
+        img {
+            height: 120px; 
+        }
+    }
+}
+
+.panel-textoParrafoE, .panel-textoSubT2 {
+    .panel-base;
+}
+
+.panel-textoParrafoE {
+    margin-top: -4rem
+}
+
+.panel-textoTitulo2E {
+    .bloque-principal;
+}
+
+.contenedor-imagen {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+
+    @media (max-width: #breaks[tablet]) {
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        gap: 10px;
+        padding: 15px;
+    }
+}
+
+.panel-textoSubT {
+    font-size: 1.4rem;
+    color: black;
+    text-align: left;
+    line-height: 2.5;
+    flex: 1;
+
+    @media (max-width: #breaks[tablet]) {
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+.cardE {
+    .card-base;
+}
