@@ -1,0 +1,151 @@
+.panel-textoParrafoOyP {
+    font-size: 1.4rem;
+    color: black;
+    text-align: center;
+    width: 80%;
+    max-width: 50rem;
+    line-height: 2.5;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: -80px;
+
+    @media (max-width: #breaks[tablet]) {
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        font-size: 1rem;
+    }
+
+    @media (min-width: #breaks[wide]) {
+        font-size: 1.8rem;
+        max-width: 70rem;
+        padding: 40px;
+    }
+}
+
+.contenedor-promos {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    padding: 20px;
+    position: relative;
+
+    @media (max-width: #breaks[tablet]) {
+        margin-top: 30px;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        margin-top: 20px;
+    }
+
+    @media (min-width: #breaks[wide]) {
+        justify-content: space-between;
+        gap: 120px;
+        padding: 50px 100px;
+    }
+}
+
+.cardPyO {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: -50px;
+
+    @media (max-width: #breaks[tablet]) {
+        width: 240px;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        width: 200px;
+    }
+
+    @media (min-width: #breaks[desktop]) {
+        width: 350px; 
+    }
+
+    @media (min-width: #breaks[wide]) {
+        width: 450px;
+        margin-top: -30px;
+    }
+}
+
+.panel-promos1, .panel-promos2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+
+    @media (max-width: #breaks[tablet]) {
+        gap: 30px;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        gap: 20px;
+    }
+
+    @media (min-width: #breaks[wide]) {
+        flex: 1 1 40%;
+        align-items: center;
+    }
+}
+
+.cardPyO img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+
+    @media (max-width: #breaks[tablet]) {
+        width: 200px;
+        height: 200px;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        width: 150px;
+        height: 150px;
+    }
+
+    @media (min-width: #breaks[desktop]) {
+        width: 300px;
+        height: 300px; 
+    }
+
+    @media (min-width: #breaks[wide]) {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+.separator {
+    width: 5px;
+    height: 82%;
+    background-color: @secondary-color-dark; 
+    position: absolute;
+    left: 50%;
+    z-index: 0;
+    margin-top: -1.5rem;
+
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+        background-color: @secondary-color-dark;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        display: none;
+    }
+
+    @media (min-width: #breaks[desktop]) {
+        margin-top: -2rem; 
+    }
+
+    @media (min-width: #breaks[wide]) {
+        height: 75%;
+        margin-top: -3rem;
+    }
+}

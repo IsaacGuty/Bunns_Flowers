@@ -1,0 +1,104 @@
+.producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+
+.producto label {
+    font-size: 16px;
+    font-weight: 600;
+    color: @secondary-text-color;
+}
+
+.producto .cantidad {
+    width: 100px; 
+    padding: 8px;
+    border: 1px solid @tertiary-color-dark;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: @tertiary-color-light;
+    text-align: center; 
+}
+
+.mensaje-confirmacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease-in-out;
+    
+    .confirmacion-contenido {
+        p {
+            margin: 5px 0;
+            &:first-child {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.form-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: @secondary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader-spinner {
+    border: 5px solid @secondary-color;
+    border-top: 5px solid @tertiary-color;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.mensaje-exito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: @tertiary-color;
+    color: @primary-text-color;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+    animation: slideIn 0.5s ease-out;
+}
+
+.exito-contenido p:first-child {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.exito-contenido p {
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
