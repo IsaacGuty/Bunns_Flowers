@@ -270,11 +270,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const formData = new FormData();
             
             formData.append('message', mensaje);
-            formData.append('_next', 'http://localhost:5173/formulariocompra.html?envio=exitoso');
+            formData.append('_next', 'https://marsuazo23.github.io/Bunns_Flowers/formulariocompra.html?envio=exitoso');
             formData.append('_captcha', 'false');
             formData.append('_template', 'box');
 
-            const response = await fetch('https://formsubmit.co/ajax/marcesuazo2004@gmail.com', {
+            const response = await fetch('https://formsubmit.co/ajax/lizzysauceda15@gmail.com ', {
                 method: 'POST',
                 body: formData
             });
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const data = await response.json();
             
             if (data.success) {
-                window.location.href = 'http://localhost:5173/formulariocompra.html?envio=exitoso';
+                window.location.href = 'https://marsuazo23.github.io/Bunns_Flowers/formulariocompra.html?envio=exitoso';
             } else {
                 throw new Error('Error en el envío');
             }
