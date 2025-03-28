@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const formData = new FormData();
             formData.append('_replyto', document.getElementById('txtEmail').value.trim());
             formData.append('message', mensajeCompleto);
-            formData.append('_next', 'http://localhost:5173/Contactos.html?envio=exitoso');
+            formData.append('_next', 'https://marsuazo23.github.io/Bunns_Flowers/Contactos.html?envio=exitoso');
             formData.append('_captcha', 'false');
             formData.append('_template', 'box');
 
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
             
             if (data.success) {
-                window.location.href = 'http://localhost:5173/Contactos.html?envio=exitoso';
+                window.location.href = 'https://marsuazo23.github.io/Bunns_Flowers/Contactos.html?envio=exitoso';
             } else {
                 throw new Error('Error en el envío');
             }
