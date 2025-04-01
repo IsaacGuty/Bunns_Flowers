@@ -18,3 +18,119 @@ body {
     overflow-x: hidden;
 
 }
+
+.panel-textoTitulo {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    font-size: 1.8rem;
+    color: @primary-text-color;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+
+    @media (max-width: #breaks[mobile]),
+           (max-width: #breaks[tablet]) {
+        font-size: 1.5rem;
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+.cuadranteCatalogo{
+    width: 200px;
+    padding: 1.5rem;
+    background-color: @secondary-color-dark;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin: 2rem auto 30px;
+    text-align: center;
+    font-size: 1rem;
+
+    &:hover {
+        transform: translateY(-5px);
+        background-color: darken(@secondary-color-dark, 10%);
+    }
+
+    h2 {
+        font-weight: normal;
+        margin: 0;
+    }
+
+    a {
+        color: @primary-text-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.cuadrantePyR {
+    width: 35%;
+    padding: 1.5rem;
+    background-color: @secondary-color-dark;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 200px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+
+    &:hover {
+        transform: translateY(-5px);
+        background-color: darken(@secondary-color-dark, 10%);
+    }
+
+    h2 {
+        font-weight: normal;
+        margin: 0;
+    }
+
+    a {
+        color: @primary-text-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    @media (max-width: #breaks[tablet]) {
+        width: 50%;
+    }
+
+    @media (max-width: #breaks[mobile]) {
+        width: 100%;
+    }
+}
+
+.btn-enviar {
+    background-color: @tertiary-color;
+    color: @tertiary-text-color;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    margin-top: 1rem;
+    border: 2px solid @tertiary-color-dark;
+
+    &:hover {
+        background-color: @tertiary-color-dark;
+    }
+
+    @media (max-width: #breaks[tablet]) {
+        max-width: 100%; 
+    }
+}
+
