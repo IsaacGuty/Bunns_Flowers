@@ -1,15 +1,20 @@
 import path, {resolve} from 'node:path'
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import * as glob from 'glob'
 import htmlPurge from 'vite-plugin-purgecss'
 import handlebars from 'vite-plugin-handlebars'
 import {ViteMinifyPlugin} from 'vite-plugin-minify'
+import { getPageContext } from './data/index'
 
-const obtenerEntradas = ()=>{
+const pageContext = (pagePath) => {
+    return getPageContext(pagePath)
+}
+
+const obtenerEntradas = () => {
     return Object.fromEntries(
         [
             ...glob.sync(
-                './**/*.html',
+                './pages/**/*.html',
                 {
                     ignore: [
                         './dist/**',
@@ -18,7 +23,7 @@ const obtenerEntradas = ()=>{
                 }
             ).map(
                 fileData => [
-                    fileData.slice(0, fileData.length - path.extname(fileData).length),
+                    path.relative('pages', fileData.slice(0, fileData.length - path.extname(fileData).length)),
                     resolve(__dirname, fileData)
                 ]
             )
@@ -26,24 +31,24 @@ const obtenerEntradas = ()=>{
     );
 }
 
-export default defineConfig(
-    {
-        appType: 'mpa', 
-        base: process.env.DEPLOY_BASE_URL,
-        build:{
-            rollupOptions:{
-                input: obtenerEntradas()
-            },
-            minify: true
+export default defineConfig({
+    appType: 'mpa',
+    base: process.env.DEPLOY_BASE_URL,
+    build: {
+        rollupOptions: {
+            input: obtenerEntradas()
         },
-        plugins: [
-            handlebars({
-                partialDirectory: resolve(__dirname, 'partials'),
-                context: (pagePath) =>{
-                    return{}
-                }
-            }),
-            htmlPurge({}),
-            ViteMinifyPlugin()
-        ]
-    });
+        minify: true
+    },
+    plugins: [
+        handlebars({
+            partialDirectory: resolve(__dirname, 'partials'),
+            context: pageContext,
+            helpers: {
+                firstLetter: (str) => str.charAt(0).toUpperCase()
+            }
+        }),
+        htmlPurge({}),
+        ViteMinifyPlugin()
+    ]
+});
