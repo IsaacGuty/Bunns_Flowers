@@ -1,0 +1,9 @@
+<div class="panel-texto4" id="{{id}}-panel">
+    <h2>ARREGLOS DE {{nombre}}</h2>
+</div>
+
+<div class="panel-ramos{{firstLetter id}}">
+    {{#each productos}}
+        {{> productoCard this}}
+    {{/each}}
+</div>

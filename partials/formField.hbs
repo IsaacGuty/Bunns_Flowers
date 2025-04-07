@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label for="{{id}}">{{label}}</label>
+    {{#if textarea}}
+        <textarea id="{{id}}" name="{{name}}" placeholder="{{placeholder}}" {{#if required}}required{{/if}}></textarea>
+    {{else}}
+        <input id="{{id}}" type="{{tipo}}" name="{{name}}" placeholder="{{placeholder}}" {{#if required}}required{{/if}}>
+    {{/if}}
+</div>

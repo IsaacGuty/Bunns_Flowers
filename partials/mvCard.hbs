@@ -1,0 +1,13 @@
+<div class="card13">
+    <h3>{{titulo}}</h3>
+    {{#if descripcion}}
+        <h4>{{descripcion}}</h4>
+    {{/if}}
+    {{#if items}}
+        <ul>
+            {{#each items}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</div>

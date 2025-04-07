@@ -1,0 +1,8 @@
+<div class="contacto-item">
+    <div class="contacto-detalle">
+        <h3>{{titulo}}</h3>
+        {{#each items}}
+        <p><a href="{{enlace}}" {{#if @root.target}}target="{{@root.target}}"{{/if}}>{{texto}}</a></p>
+        {{/each}}
+    </div>
+</div>
