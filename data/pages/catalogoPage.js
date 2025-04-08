@@ -1,4 +1,5 @@
 export const catalogoPage = {
+    titulo: "CATÁLOGO",
     categorias: [
         {
             id: "rosas",
