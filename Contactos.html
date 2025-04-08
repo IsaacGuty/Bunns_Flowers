@@ -1,111 +1,85 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunns flowers</title>
-    <link rel="stylesheet" href="less/main.less" />
+    <title>Bunns flowers - Contacto</title>
+    <link rel="stylesheet" href="less/main.less">
     <script type="module" src="/src/scripts/validacionesContacto.js"></script>
 </head>
-
 <body>
     {{> header}}
     
     <main>
         <section class="panel-contacto">
-
             <div class="panel-textoTitulo">
-                <h2>CONTÁCTANOS</h2>
+                <h2>{{titulo}}</h2>
             </div>
 
             <div class="panel-textoParrafoCT">
-                <p>Estamos aquí para ayudarte a hacer tus momentos aún más especiales. Si tienes preguntas, necesitas asesoría o deseas personalizar un arreglo, no dudes en escribirnos o llamarnos.</p>
+                <p>{{introduccion}}</p>
             </div>
             
             <div class="contacto-info">
-                <div class="contacto-item">
-                    <div class="contacto-detalle">
-                        <h3>TELÉFONO</h3>
-                        <p><a href="tel:87740158">8774-0158</a></p>
-                    </div>
-                </div>
+                {{> contactoItem 
+                    titulo=telefonos.titulo 
+                    items=telefonos.items
+                }}
                 
-                <div class="contacto-item">
-                    <div class="contacto-detalle">
-                        <h3>WHATSAPP</h3>
-                        <p><a href="https://wa.me/50487740158" target="_blank">Enviar mensaje</a></p>
-                    </div>
-                </div>
+                {{> contactoItem 
+                    titulo=whatsapp.titulo 
+                    items=whatsapp.items
+                    target="_blank"
+                }}
                 
-                <div class="contacto-item">
-                    <div class="contacto-detalle">
-                        <h3>CORREO ELECTRÓNICO</h3>
-                        <p><a href="mailto:lizzysauceda15@gmail.com">lizzysauceda15@gmail.com</a></p>
-                    </div>
-                </div>
+                {{> contactoItem 
+                    titulo=email.titulo 
+                    items=email.items
+                }}
                 
                 <div class="contacto-item horario">
                     <div class="contacto-detalle">
-                        <h3>HORARIO DE ATENCIÓN</h3>
-                        <p>LUNES A VIERNES: 9:00 AM - 6:00 PM</p>
-                        <p>SÁBADO: 9:00 AM - 3:00 PM</p>
-                        <p>DOMINGO: CERRADO</p>
-                        <p class="destacado">¡EN BUNNS FLOWERS ESTAMOS ENCANTADOS DE ATENDERTE!</p>
+                        <h3>{{horario.titulo}}</h3>
+                        {{#each horario.items}}
+                        <p>{{this}}</p>
+                        {{/each}}
+                        <p class="destacado">{{horario.mensaje}}</p>
                     </div>
                 </div>
             </div>
 
             <div class="panel-textoPregunta">
-                <h2>PUEDES VER NUESTRAS PREGUNTAS FRECUENTES AQUÍ</h2>
+                <h2>{{preguntasFrecuentes.titulo}}</h2>
             </div>
 
             <div class="cuadrantePyR">
-                <h2><a href="PreguntasF.html">PREGUNTAS Y RESPUESTAS</a></h2>
+                <h2><a href="{{preguntasFrecuentes.enlace}}">{{preguntasFrecuentes.textoBoton}}</a></h2>
             </div>
 
             <div class="panel-textoTitulo">
-                <h2>COMPLETA TU INFORMACIÓN</h2>
+                <h2>{{formulario.titulo}}</h2>
             </div>
 
             <div class="panel-form">
-                <form action="https://formsubmit.co/marcesuazo2004@gmail.com" method="POST">
+                <form action="{{formulario.action}}" method="{{formulario.method}}" novalidate>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="txtNombre">Nombre:</label>
-                            <input id="txtNombre" type="text" placeholder="Nombre Completo"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtApellido">Apellido:</label>
-                            <input id="txtApellido" type="text" placeholder="Apellido Completo"/>
-                        </div>
+                        {{> formField formulario.campos.nombre}}
+                        {{> formField formulario.campos.apellido}}
                     </div>
                     
-                    <div class="form-group">
-                        <label for="txtEmail">Email:</label>
-                        <input id="txtEmail" name="txtEmail" type="email" placeholder="tucorreo@electronico.com"/>
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="txtTeléfono">Número de teléfono:</label>
-                        <input id="txtTeléfono" type="text" placeholder="Número de teléfono"/>
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="txtComentarios">Comentarios:</label>
-                        <textarea id="txtComentarios" name="txtBio" placeholder="Tu comentario"></textarea>
-                    </div>
+                    {{> formField formulario.campos.email}}
+                    {{> formField formulario.campos.telefono}}
+                    
+                    {{> formField formulario.campos.comentarios}}
 
                     <div class="form-group">
-                        <button type="submit" name="btnEnviar" class="btn-enviar">Enviar</button>
+                        <button type="submit" name="btnEnviar" class="btn-enviar">{{formulario.textoBoton}}</button>
                     </div>
-
                 </form>
             </div>  
         </section>
     </main>
 
     {{> footer}}
-
 </body>
 </html>

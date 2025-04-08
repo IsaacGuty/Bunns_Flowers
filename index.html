@@ -1,45 +1,33 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunns flowers</title>
+    <title>{{titulo}}</title>
     <link rel="stylesheet" href="less/main.less"/>
 </head>
 
 <body>
-
     {{> header}}
     
     <main>
         <section class="panel-inicio">
-          
-            <div class="panel-floreseternas">
-                <h2>FLORES ETERNAS</h2>
-                <p>Imagina tener flores que duran para siempre, un sueño hecho realidad para quienes aman las plantas. Aunque suene increíble, estas flores eternas existen, y lo mejor de todo es que no necesitan grandes cuidados para acompañarte por mucho tiempo.</p>
-
-                <p>Con las flores eternas, no tendrás que preocuparte si olvidas regarlas o si te vas de vacaciones por semanas; cuando regreses, estarán igual de hermosas y listas para seguir decorando tu espacio… ¡por años! Y no, no hablamos de flores de plástico, siendo además una opción sostenible y amigable con el medio ambiente.</p>
-            </div>
-
-            <div class="panel-floreterna">
-                <picture>
-                    <img src="imagenes/floreterna.jpg" alt="Flores eternas" />
-                </picture>
-            </div>
-
+            {{> seccionFlores 
+                data=floresEternas
+            }}
+            
             <div class="panel-regalop">
-                <p>EL REGALO </br>
-                PERFECTO</p>
+                <p>{{textoRegalo}}</p>
             </div>
 
-            <div class="cuadranteCatalogo">
-                <h2><a href="Catalogo.html">Ver catálogo</a></h2>
-            </div>
+            {{> cuadrantes 
+                enlace=cuadranteCatalogo.enlace
+                titulo=cuadranteCatalogo.titulo
+                clase=cuadranteCatalogo.clase
+            }}
         </section>
     </main>   
     
     {{> footer}}
 </body>
-
 </html>

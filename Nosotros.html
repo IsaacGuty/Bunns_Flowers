@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunns flowers</title>
+    <title>{{tituloPagina}}</title>
     <link rel="stylesheet" href="less/main.less" />
 </head>
-
 <body>
     {{> header}}
     
     <main>
         <section class="panel-nosotros">
-
             <div class="panel-textoTitulo">
-                <h2>SOBRE NOSOTROS</h2>
+                <h2>{{tituloSeccion}}</h2>
             </div> 
 
             <div class="panel-textoParrafoNS">
                 <div class="cardN">
-                    <img src="imagenes/Logo3.png" alt="Logo de Bunns Flowers">
+                    <img src="{{logo.ruta}}" alt="{{logo.alt}}">
                 </div>
                 <div class="panel-textoParrafo2NS">
-                    <p>
-                        En Bunns Flowers, transformamos momentos especiales en recuerdos inolvidables a través de la belleza de nuestras flores. Nos apasiona crear arreglos únicos que transmitan emociones, celebrando cada detalle de la vida. Trabajamos con dedicación y compromiso para ofrecer productos de la más alta calidad, como nuestras exclusivas flores inmortales. Más que vender flores, creamos conexiones que florecen para toda la vida.
-                    </p>
+                    <p>{{descripcion}}</p>
                 </div>
             </div>
 
             <div class="contenedor-cuadrantes">
-                <div class="cuadranteMV">
-                    <h2><a href="MisionyVision.html">MISION, VISION Y VALORES</a></h2>
-                </div>
-    
-                <div class="cuadranteEventos">
-                    <h2><a href="Eventos.html">EVENTOS</a></h2>
-                </div>
-    
-                <div class="cuadrantePyR">
-                    <h2><a href="PreguntasF.html">PREGUNTAS Y RESPUESTAS</a></h2>
-                </div>
-            </div>  
+                {{#each cuadrantes}}
+                    {{> cuadrantes
+                        titulo=this.titulo 
+                        enlace=this.enlace
+                        clase=this.clase
+                    }}
+                {{/each}}
+            </div>
         </section>
     </main>
 
     {{> footer}}
-    
 </body>
 </html>

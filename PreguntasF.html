@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunns flowers</title>
-    <link rel="stylesheet" href="less/main.less" />
+    <title>Bunns flowers - Preguntas Frecuentes</title>
+    <link rel="stylesheet" href="less/main.less">
 </head>
-
 <body>
     {{> header}}
-
+    
     <main>
         <section class="panel-preguntasf">
-
             <div class="panel-textoTitulo">
-                <h2>PREGUNTAS Y RESPUESTAS</h2>
-            </div> 
+                <h2>{{titulo}}</h2>
+            </div>
 
-            <div class="panel-textoParrafoPyF">
-                <p><strong>¿Qué son las flores eternas?</strong></br>
-                    Son arreglos florales elaborados a mano con cintas de alta calidad, diseñados para durar toda la vida mientras mantienen su belleza y estilo únicos.
-            </div> 
-
-            <div class="panel-textoParrafoPyF">
-                <p><strong>¿Qué materiales se utilizan para las flores eternas?</strong></br>
-                    Usamos cintas de alta calidad hechas de satén, organza y otros materiales resistentes para garantizar la durabilidad de las flores.
-            </div> 
-
-            <div class="panel-textoParrafoPyF">
-                <p><strong>¿En qué ocasiones son ideales las flores eternas?</strong></br>
-                    Son perfectas para regalos, decoración del hogar, eventos especiales como bodas, aniversarios, cumpleaños, o cualquier ocasión donde desees regalar algo único y duradero..
-            </div> 
+            {{#each preguntas}}
+                {{> preguntaItem this}}
+            {{/each}}
 
             <div class="cardPyF">
-                <img src="imagenes/PreguntasFrecuentes.png" alt="Eventos Futuros">
+                <img src="{{imagenDestacada}}" alt="Preguntas frecuentes">
             </div>
+
+            {{#if notaAdicional}}
+            <div class="panel-notaAdicional">
+                <p>{{notaAdicional}}</p>
+            </div>
+            {{/if}}
         </section>
     </main>
 
     {{> footer}}
-    
 </body>
 </html>

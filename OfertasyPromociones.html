@@ -1,62 +1,49 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunns flowers</title>
-    <link rel="stylesheet" href="less/main.less" />
+    <title>Bunns flowers - Ofertas y Promociones</title>
+    <link rel="stylesheet" href="less/main.less">
 </head>
-
 <body>
     {{> header}}
-
+    
     <main>
         <section class="panel-ofertasypromociones">
             <div class="panel-textoTitulo">
-                <h2>OFERTAS Y PROMOCIONES</h2>
+                <h2>{{titulo}}</h2>
             </div>
 
             <div class="panel-textoParrafoOyP">
-                <p>En Bunns Flowers, queremos que cada ocasión sea única y especial. Por eso, hemos creado promociones diseñadas para que sorprendas a tus seres queridos sin comprometer tu presupuesto.</p>
+                <p>{{introduccion}}</p>
             </div> 
 
             <div class="contenedor-promos">
-                <div class="panel-promos1">
-                    <div class="cardPyO">
-                        <h3>PACK ROMANTICO</h3>
-                        <img src="imagenes/packromantico.jpg" alt="Pack Romantico">
-                        <h4>El regalo perfecto para aniversarios o celebraciones. Incluye un arreglo floral inmortal + 4 Polaroids y chocolates de elección</h4>
-                    </div>
-                    <div class="cardPyO">
-                        <h3>DUO PERFECTO</h3>
-                        <img src="imagenes/florgirasol.jpg" alt="Duo Perfecto">
-                        <h4>Si compras dos arreglos medianos, obtén un tercer arreglo pequeño completamente GRATIS.</h4>
-                    </div>
+                {{#each gruposPromos}}
+                <div class="{{this.nombre}}">
+                    {{#each this.promociones}}
+                        {{> promoCard this}}
+                    {{/each}}
                 </div>
-
+                
+                {{#unless @last}}
                 <div class="separator"></div>
-            
-                <div class="panel-promos2">
-                    <div class="cardPyO">
-                        <h3>DÍA ESPECIAL</h3>
-                        <img src="imagenes/diaespecial.jpg" alt="Día especial">
-                        <h4>Escoge el diseño perfecto para un arreglo para días importantes como celebraciones o graduaciones. Escoge un formato de caja + la cantidad de rosas por caja + mariposas y decoración según el evento</h4>
-                    </div>
-                    <div class="cardPyO">
-                        <h3>CLIENTE FRECUENTE</h3>
-                        <img src="imagenes/clientefrecuente.jpg" alt="Cliente frecuente">
-                        <h4>Obten una tarjeta donde se colocará un sticker en cada visita y recibe recompensas por ellas.</h4>
-                    </div>
-                </div>
+                {{/unless}}
+                {{/each}}
 
                 <div class="panel-textoSubT2">
-                    <p>Mantente al tanto de nuestras promociones siguiéndonos en redes sociales para recibir descuentos exclusivos.</p>
+                    <p>{{footerPromos.texto}}</p>
+                    <div class="redes-sociales">
+                        {{#each footerPromos.redes}}
+                        <a href="{{enlace}}">{{nombre}}: {{handle}}</a>
+                        {{/each}}
+                    </div>
                 </div> 
             </div>
         </section>
     </main>
     
     {{> footer}}
-
 </body>
+</html>

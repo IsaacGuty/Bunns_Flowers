@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunns flowers</title>
-    <link rel="stylesheet" href="less/main.less" />
+    <title>Bunns flowers - Misión y Visión</title>
+    <link rel="stylesheet" href="less/main.less">
 </head>
-
 <body>
     {{> header}}
     
     <main>
         <section class="panel-misionV">
-            
             <div class="panel-mvv">
                 <div class="card13">
-                    <h3>MISION</h3>
-                    <h4>En Bunns Flowers, nos dedicamos a crear experiencias memorables a través de arreglos florales únicos y de alta calidad. Trabajamos con pasión para embellecer los momentos especiales de nuestros clientes, ofreciendo productos innovadores como nuestras exclusivas flores inmortales y un servicio personalizado que refleja dedicación y excelencia.</a>
-                    </h4>
+                    <h3>{{mision.titulo}}</h3>
+                    <h4>{{mision.descripcion}}</h4>
                 </div>
                 <div class="card13">
-                    <h3>VISION</h3>
-                    <h4>Ser la marca líder en arreglos florales y decoración en la región, reconocida por nuestra creatividad, calidad excepcional y compromiso con la satisfacción de nuestros clientes. Queremos inspirar emociones y ser parte de los recuerdos más significativos, posicionándonos como la mejor opción para regalos y eventos florales.
-                    </h4>
+                    <h3>{{vision.titulo}}</h3>
+                    <h4>{{vision.descripcion}}</h4>
                 </div>
                 <div class="card13">
-                    <h3>VALORES</h3>
+                    <h3>{{valores.titulo}}</h3>
                     <ul>
-                        <li><strong>Calidad:</strong> Garantizamos productos cuidadosamente seleccionados y elaborados con precisión.</li>
-                        <li><strong>Compromiso:</strong> Nos enfocamos en ofrecer un servicio excepcional, priorizando las necesidades de nuestros clientes.</li>
-                        <li><strong>Creatividad:</strong> Diseñamos arreglos únicos que transmiten emociones y cuentan historias.</li>
+                        {{#each valores.items}}
+                        <li>{{this}}</li>
+                        {{/each}}
                     </ul>
-                </div>                
+                </div>
             </div>
         </section>
     </main>
 
     {{> footer}}
-    
 </body>
 </html>

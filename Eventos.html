@@ -1,74 +1,44 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunns flowers</title>
-    <link rel="stylesheet" href="less/main.less" />
+    <title>Bunns flowers - Eventos</title>
+    <link rel="stylesheet" href="less/main.less">
 </head>
-
 <body>
     {{> header}}
     
     <main>
         <section class="panel-eventos">
-
             <div class="panel-textoTitulo">
-                <h2>EVENTOS Y FERIAS DE </br>
-                     EMPRENDEDORES</h2>
+                <h2>{{titulo}}</h2>
             </div>
 
             <div class="panel-textoParrafoE">
-                <p><strong>¡Conoce dónde hemos estado y dónde estaremos!</strong></br>
-                    En Bunns Flowers, nos encanta conectar contigo en ferias y eventos de emprendedores. Aquí puedes ver un resumen de los lugares que hemos visitado y nuestras próximas fechas para que vengas a conocernos.</p>
+                <p>
+                    <strong>{{introduccion.texto}}</strong><br>
+                    {{introduccion.descripcion}}
+                </p>
             </div> 
 
             <div class="panel-textoTitulo2E">
                 <h2>EVENTOS PASADOS</h2>
             </div>
 
-            <div class="contenedor-imagen">
-                <div class="panel-textoSubT">
-                    <p><strong>Feria en la Universidad Católica</strong></br>
-                        <strong>Fecha:</strong> 21 de noviembre de 2024</br>
-                        <strong>Ubicación:</strong> Polideportivo de la Universidad Católica</p>
-                </div>
-                <div class="cardE">
-                    <img src="imagenes/feria_universidad.jpg" alt="Eventos Pasados">
-                </div>
-            </div>
-
-            <div class="contenedor-imagen">
-                <div class="panel-textoSubT">
-                    <p><strong>Feria en la CCIT (Cámara de Comercio e Industria de Tegucigalpa)</strong></br>
-                        <strong>Fecha:</strong> 1 de diciembre de 2024</br>
-                        <strong>Ubicación:</strong> Sede de la CCIT</p>
-                </div>
-                <div class="cardE">
-                    <img src="imagenes/feria_ccit.jpg" alt="Eventos Futuros">
-                </div>
-            </div>
-
-            <div class="contenedor-imagen">
-                <div class="panel-textoSubT">
-                    <p><strong>Feria de Emprendedores en El Picacho</strong></br>
-                        <strong>Fecha:</strong> 13, 14 y 15 de diciembre de 2024</br>
-                        <strong>Ubicación:</strong> Parque El Picacho, Tegucigalpa</p>
-                </div>
-                <div class="cardE">
-                    <img src="imagenes/feria_picacho.jpeg" alt="Eventos Futuros">
-                </div>
-            </div>
+            {{#each eventosPasados}}
+                {{> eventoCard this}}
+            {{/each}}
 
             <div class="panel-textoSubT2">
-                <p><strong>¡No te pierdas la oportunidad de visitarnos!</strong></br>
-                    Ven y conoce nuestras flores eternas de cinta, perfectas para cualquier ocasión. Mantente atento a esta página y nuestras redes sociales para conocer nuevos eventos.
+                <p>
+                    <strong>{{cierre.texto}}</strong><br>
+                    {{cierre.descripcion}}
+                </p>
             </div> 
         </section>
     </main>
 
     {{> footer}}
-    
 </body>
 </html>
