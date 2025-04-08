@@ -19,11 +19,11 @@
 }
 
 .panel-texto4 {
-    margin-top: 150px;
+    margin-top: 100px;
 
     @media (max-width: #breaks[mobile]),
            (max-width: #breaks[tablet]) {
-        margin-top: -100px;
+        margin-top: 0px;
     }
 }
 
@@ -36,6 +36,12 @@
     justify-items: center;
     align-items: center;
 
+    @media (max-width: #breaks[desktop]) {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 150px; 
+        margin-top: 60px; 
+    }
+    
     @media (max-width: #breaks[tablet]) {
         grid-template-columns: repeat(2, 1fr); 
         gap: 35px; 
@@ -45,7 +51,7 @@
     @media (max-width: #breaks[mobile]) {
         grid-template-columns: 1fr; 
         gap: 10px; 
-        margin-top: 40px; 
+        margin-top: 60px; 
     }
 }
 
@@ -112,7 +118,7 @@
     padding: 15px;
     border-radius: 50%;
     background-color: @tertiary-color;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px @black-10;
     text-align: center;
 
     @media (max-width: #breaks[tablet]) {
@@ -171,7 +177,7 @@
     }
 }
 
-.panel-ramosr, .panel-ramosG, .panel-ramosD, .panel-ramosT {
+.panel-ramosR, .panel-ramosG, .panel-ramosD, .panel-ramosT {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -190,7 +196,7 @@
     padding: 1.5rem;
     background-color: @secondary-color-dark;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px @black-10;
     transition: background-color 0.3s ease;
     margin: 2rem auto 30px;
     text-align: center;
