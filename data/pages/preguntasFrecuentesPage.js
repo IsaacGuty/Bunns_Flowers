@@ -20,6 +20,4 @@ export const preguntasFrecuentesPage = {
             respuesta: "Recomendamos usar un paño seco o un cepillo suave para retirar el polvo. No uses líquidos ni productos químicos."
         },
     ],
-    
-    notaAdicional: "¿No encontraste tu pregunta? Contáctanos directamente y con gusto te ayudaremos."
 };
