@@ -1,9 +1,9 @@
-import path, { resolve } from 'node:path'
+import path, {resolve} from 'node:path'
 import { defineConfig } from 'vite'
 import * as glob from 'glob'
 import htmlPurge from 'vite-plugin-purgecss'
 import handlebars from 'vite-plugin-handlebars'
-import { ViteMinifyPlugin } from 'vite-plugin-minify'
+import {ViteMinifyPlugin} from 'vite-plugin-minify'
 import { getPageContext } from './data/index'
 
 const pageContext = (pagePath) => {
@@ -11,41 +11,41 @@ const pageContext = (pagePath) => {
 }
 
 const obtenerEntradas = () => {
+    // Busca en la raíz del proyecto
+    const entradas = glob.sync('./**/*.html', {
+        ignore: [
+            './dist/**',
+            './node_modules/**'
+        ]
+    });
+
+    if (entradas.length === 0) {
+        throw new Error('No se encontraron archivos HTML para compilar. Verifica las rutas.');
+    }
+
     return Object.fromEntries(
-        glob.sync(
-            './pages/*/.html',
-            {
-                ignore: [
-                    './dist/**',
-                    './node_modules/**'
-                ]
-            }
-        ).map((fileData) => {
-            const entrada = path.relative('pages', fileData.slice(0, fileData.length - path.extname(fileData).length));
-            return [
-                entrada,
-                resolve(__dirname, fileData)
-            ];
-        })
+        entradas.map(file => [
+            // Mantén la estructura de directorios relativa
+            path.relative('./', file.slice(0, file.length - path.extname(file).length)),
+            resolve(__dirname, file)
+        ])
     );
 }
 
 export default defineConfig({
     appType: 'mpa',
-    base: process.env.DEPLOY_BASE_URL,
+    base: process.env.DEPLOY_BASE_URL ? `/${process.env.DEPLOY_BASE_URL.replace(/^\/|\/$/g, '')}/` : '/',
     build: {
         rollupOptions: {
             input: obtenerEntradas()
         },
-        minify: true
+        minify: true,
+        emptyOutDir: true
     },
     plugins: [
         handlebars({
             partialDirectory: resolve(__dirname, 'partials'),
-            context: pageContext,
-            helpers: {
-                firstLetter: (str) => str.charAt(0).toUpperCase()
-            }
+            context: pageContext
         }),
         htmlPurge({}),
         ViteMinifyPlugin()
