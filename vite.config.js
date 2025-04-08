@@ -6,15 +6,11 @@ import handlebars from 'vite-plugin-handlebars'
 import {ViteMinifyPlugin} from 'vite-plugin-minify'
 import { getPageContext } from './data/index'
 
-const pageContext = (pagePath) => {
-    return getPageContext(pagePath)
-}
-
-const obtenerEntradas = () => {
+const obtenerEntradas = ()=>{
     return Object.fromEntries(
         [
             ...glob.sync(
-                './pages/**/*.html',
+                './**/*.html',
                 {
                     ignore: [
                         './dist/**',
@@ -23,13 +19,14 @@ const obtenerEntradas = () => {
                 }
             ).map(
                 fileData => [
-                    path.relative('pages', fileData.slice(0, fileData.length - path.extname(fileData).length)),
+                    fileData.slice(0, fileData.length - path.extname(fileData).length),
                     resolve(__dirname, fileData)
                 ]
             )
         ]
     );
 }
+
 
 export default defineConfig({
     appType: 'mpa',
@@ -43,10 +40,7 @@ export default defineConfig({
     plugins: [
         handlebars({
             partialDirectory: resolve(__dirname, 'partials'),
-            context: pageContext,
-            helpers: {
-                firstLetter: (str) => str.charAt(0).toUpperCase()
-            }
+            context : getPageContext
         }),
         htmlPurge({}),
         ViteMinifyPlugin()
